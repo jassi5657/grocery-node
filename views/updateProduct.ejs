@@ -1,0 +1,42 @@
+<%- include('partials/AdminHead.ejs')%>
+
+<h1 class="text-center my-5">Update Product</h1>
+<div class="container w-50">
+
+<form method="post" class="form-floating mb-3">
+    <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="name" value="<%= product.name %>">
+    <label for="floatingInput">Product Name</label>
+  </div>
+  <div class="form-floating mb-3">
+    <textarea rows="10" type="text" class="form-control h-100" id="floatingInput" placeholder="name@example.com" name="description" > 
+      <%= product.description %>
+    </textarea>
+    <label for="floatingInput">Product description</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="number" class="form-control" id="floatingPassword" placeholder="Password" name="price" value="<%= product.price  %>">
+    <label for="floatingPassword">Price</label>
+  </div>
+  <div class="form-floating mb-3">
+    <select class="form-select" id="floatingSelectDisabled" aria-label="Floating label disabled select example" name="category" value="<%= product.category %>">
+      <option >Choose a Category</option>
+      <option value="vegitable">vegitable</option>
+      <option value="fruits">fruits</option>
+      <option value="chicken">Chicken</option>
+      <option value="dessert">desserts</option>
+      <option value="diary product">Diary product</option>
+      <option value="baking goods">Baking goods</option>
+
+      <option value="dry fruits">dry fruits</option>
+
+      <option value="other">other</option>
+
+    </select>
+    <label for="floatingSelectDisabled">Category</label>
+  </div>
+  <button class="btn btn-dark">Add Product</button>
+</form>
+</div>
+
+<%- include('partials/AdminBody.ejs')%>

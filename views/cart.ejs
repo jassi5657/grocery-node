@@ -1,0 +1,172 @@
+<%- include('partials/head.ejs')%>
+<style>
+
+    .container{
+        display: grid;
+        /* height: 100vh; */
+        width: 100%;
+
+    }
+
+     .container .head{
+        margin-top: 50px;
+        margin-left: 170px;
+        font-weight: 800;
+        font-size: 23px;
+        /* float: left; */
+    }
+
+    .content{
+        display: flex;
+        width: 70%;
+        margin-top: 60px;
+        margin-left: 150px;
+    }
+
+    .content img{
+        width: 200px;
+        height: 150px;
+    }
+
+    .content h1{
+        margin-left: 80px;
+        margin-top: 10px;
+    }
+
+    .content .desc{
+        width: 250px;
+        margin-left: 80px;
+        margin-top: 50px;
+        
+        font-size: 18px;
+    }
+
+    
+
+    .content p{
+        font-size: 18px;
+        margin-left: 600px;
+        
+    }
+
+    .content .price{
+        margin-top: 10px;
+        font-size: 18px;
+        margin-left: 200px;
+        
+    }
+
+    select{
+        height: 30px;
+        width: 60px;
+        margin-left: 200px;
+        font-size: 16px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    
+    .remove{
+        margin-left: 1200px;
+        margin-top: -190px;
+        font-size: 20px;
+    }
+
+
+    .buy{
+        width: 120px;
+        height: 40px;
+        margin-top: -230px;
+        background-color: Rgb(13,110,253);
+        color: white;
+        text-align: center;
+        align-items: center;
+        border: none;
+        font-size: 17px;
+        margin-left: 1300px;
+        border-radius: 8px;
+    }
+
+    .buy:hover{
+        background-color: Rgb(7,132,7);
+
+    }
+    
+
+    
+    </style>
+
+
+<div class="container">
+
+    <h1 class="head">Shopping Cart</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    
+
+
+
+    <% product.forEach(function(i) { %>
+    <div class="content">
+        <div class="image">
+            <img src="<%= i.url%>" alt="">
+        </div>
+        
+        
+        <div class="description">
+            <h1><%= i.name%></h1>
+            <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+            
+            
+        </div>
+
+        
+        <p class="price" id="price">₹<%= i.price * i.qty %></p>
+        
+        
+
+    </div>
+    <br>
+    <br>
+
+
+    <hr>
+
+    <a href="/cart/<%= i._id%>" class="remove"><i class="fa-solid fa-x"></i></button></a>
+    <form method="post" action="/order">
+        <input type="hidden" name="name" value="<%= i.name%>">
+        <input type="hidden" name="price" value="<%= i.price%>">
+        <input type="hidden" name="url" value="<%= i.url%>">
+        <br>
+        <br>
+        <input type="submit" class="buy"   value="Buy Now">
+</form>
+    
+
+
+    
+    
+    
+    
+    <%})%>
+    
+
+
+
+    
+
+
+    
+</div>
+
+
+    
+
+
+<%- include('partials/body.ejs')%>

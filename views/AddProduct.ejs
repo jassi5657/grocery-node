@@ -1,0 +1,50 @@
+<%- include('partials/AdminHead.ejs')%>
+
+<h1 class="text-center my-5">Add New Product</h1>
+<div class="container w-50">
+
+
+<form method="post" class="form-floating mb-3">
+    <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="name">
+    <label for="floatingInput">Product Name</label>
+  </div>
+  <div class="form-floating mb-3">
+    <textarea rows="10" type="text" class="form-control h-100" id="floatingInput" placeholder="name@example.com" name="description"></textarea>
+    <label for="floatingInput">Product description</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingInput" placeholder="Enter image url" name="url">
+    <label for="floatingInput">Product Image</label>
+  </div>
+
+  <div class="form-floating mb-3">
+
+    <div class="input-group mb-3">
+        <span class="input-group-text">₹</span>
+        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="price">
+        <span class="input-group-text">.00</span>
+      </div>
+  </div>
+  <div class="form-floating mb-3">
+    <select class="form-select" id="floatingSelectDisabled" aria-label="Floating label disabled select example" name="category">
+      <option selected>Choose a Category</option>
+      <option value="vegitable">vegitables</option>
+      <option value="fruits">fruits</option>
+      <option value="Chicken">Chicken</option>
+      <option value="desserts">desserts</option>
+      <option value="diary product">Diary product</option>
+      <option value="Baking goods">baking goods</option>
+
+      <option value="dry fruits">Dry fruits</option>
+
+
+      <option value="other">other</option>
+    </select>
+    <label for="floatingSelectDisabled">Category</label>
+  </div>
+  <button class="btn btn-dark">Add Product</button>
+</form>
+
+<%- include('partials/AdminBody.ejs')%>

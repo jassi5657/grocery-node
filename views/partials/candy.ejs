@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <h1 style="margin-top: 100px; margin-left: 40px; font-weight: 700; font-size: 25px;">Candies & Gums</h1>
+  <div class="container" style="margin-top: 15px;">
+
+
+    <% const slicedProduct=product.slice(151, 163); %>
+      <!-- img-1 -->
+
+      <% slicedProduct.forEach((i)=> { %>
+
+        <!-- img-1 -->
+        <a href="/product/single<%=i.id%>">
+
+          <div class="img_slider">
+
+            <div class="img_bg">
+              <a href="/product/single/<%= i._id %>" style="text-decoration: none;">
+
+                <img src="<%= i.url%>" alt="">
+
+              </a>
+              <!-- <p>11 MINS</p> -->
+
+              <h5>
+                <%= i.name%>
+              </h5>
+              <br>
+              <br>
+              <br>
+              
+                          <p class="price">₹<%= i.price%></p>
+              
+                          <form style="margin-left: 30px;" method="post" action="/product/single/:id">
+                            <input type="hidden" name="name" value="<%= i.name%>">
+                            <input type="hidden" name="price" value="<%= i.price%>">
+                            <input type="hidden" name="url" value="<%= i.url%>">
+                            <button style="margin-top: -29px;" type="submit">Add</button>
+                        <br>
+                        <br>
+                        <!-- <input type="submit" class="btn"   value="Buy Now"> -->
+                        
+                </form>  
+
+            </div>
+        </a>
+  </div>
+
+
+  <%})%>
+
+
+
+    </div>
+</body>
+
+</html>

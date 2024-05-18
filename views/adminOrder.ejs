@@ -1,0 +1,94 @@
+<%- include('partials/AdminHead')%>
+<style>
+  select{
+    height: 35px;
+    text-align: center;
+    align-items: center;
+    border-radius: 8px;
+    font-size: 17px;
+  }
+
+  button{
+    background-color: Rgb(13,110,253);
+    border-radius: 8px ;
+    height: 35px;
+    margin-left: 10px;
+    color: white;
+    font-size: 20px;
+    width: 150px;
+    border: none;
+    &:hover{
+      background-color: green;
+      transition: .3s ease-in;
+    }
+  }
+</style>
+<div>
+    <h1 class="text-center py-5">All Orders </h1>
+    <div class="container d-flex justify-center gap-2 flex-wrap" style="width: 90%; margin: 30px auto;">
+
+    <table class="table table-striped">
+        <thead>
+            <th>Image</th>
+            <th>Product Name</th>
+            <th>Price </th>
+            <th>Check </th>
+            <th>username </th>
+            <th>actions</th>
+            <th>Time</th>
+
+        </thead>
+        <tbody>
+
+            <%
+                const currentDate = new Date();
+                const currentDate1 = currentDate.toLocaleString();
+              
+              
+                %>
+                <!-- <p class="orderPlace">Order placed <%= currentDate1 %></p> -->
+
+                <% for(let i of product){ %>
+
+                
+
+                <tr>
+                    <td><img src="<%= i.url%>" width="50"></td>
+
+                    <td><a href="/product/single/<%= i._id %>" class="text-black text-decoration-none" target="_blank"><%= i.name %></a></td>
+
+                    <td> <%= i.price %> </td>
+
+                    
+                    <td>
+                         <!-- <a href="/seller/update/<%= i._id%>" class="btn text-primary bg-primary-subtle me-2">update</button> -->
+                         <a href="/seller/delete/<%= i._id%>" class="btn text-danger bg-danger-subtle">delete</button>
+                     </td>
+
+                     <td><%= email%></td>
+                        <!-- other table data -->
+                        <td>
+                          <form action="/order/<%= i._id %>" method="POST">
+                            <input type="hidden" name="_method" value="PUT">
+                            <select name="status">
+                              <option value="pending">Pending</option>
+                              <option value="processing">Processing</option>
+                              <option value="shipped">Shipped</option>
+                              <option value="delivered">Delivered</option>
+                            </select>
+                            <button type="submit">Update Status</button>
+                          </form>
+                        </td>
+                        <!-- other table data -->
+                     <td>Order placed <%= currentDate1 %></td>
+                     
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+
+</div>
+</div>
+
+
+<%- include('partials/AdminBody')%>

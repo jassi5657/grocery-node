@@ -1,0 +1,155 @@
+<!-- /*footer-----*/ -->
+
+<section class="footer" style="margin-top: 100px;">
+  <div class="box-container">
+    <div class="box">
+      <h3> Grocoery <i class="fa fa-shopping-basket"></i></h3>
+      <p>Feel Free To Follow Us On Our Social Media Handlers All Links Are Given Below</p>
+
+
+      <div class="share">
+        <a href ="https://www.facebook.com/" class = "fa fa-facebook"></a>
+        <a href ="https://twitter.com/i/flow/login" class = "fa fa-twitter"></a>
+        <a href ="https://www.instagram.com/accounts/login/?hl=en" class = "fa fa-instagram"></a>
+        <a href ="https://www.linkedin.com/feed/" class = "fa fa-linkedin"></a>
+
+      </div>
+    </div>
+
+
+
+
+
+    <div class="box">
+      <h3> Contact Info</h3>
+      <a href="#"class="links"><i class = "fa fa-phone"></i> +91 9814176363</a>
+      <a href="#"class="links"><i class = "fa fa-phone"></i> +91 9814176310</a>
+      <a href="#"class="links"><i class = "fa fa-envelope"></i>info@example.com</a>
+      <a href="#"class="links"><i class = "fa fa-map-marker"></i> punjab, india</a>
+      
+    </div>
+
+
+    <div class="box">
+      <h3>Quick Links</h3>
+      <a href="/"class="links"><i class = "fa fa-arrow-right"></i>  Home</a>
+      <a href="/features"class="links"><i class = "fa fa-arrow-right"></i>  Features</a>
+      <a href="/product"class="links"><i class = "fa fa-arrow-right"></i>  Product</a>
+      <a href="/category"class="links"><i class = "fa fa-arrow-right"></i> Categories </a>
+      <a href="/blog"class="links"><i class = "fa fa-arrow-right"></i>  Blog</a>
+
+    </div>
+
+
+    <div class="box">
+      <h3>Newsletter</h3>
+      <p>subscribe For Latest Updates</p>
+      <input tupe="email" placeholder=" Your Email" class="email">
+      <input type="submit" value="subscribe" class="btn">
+    </div>
+
+
+
+  </div>
+
+
+
+</section>
+    
+
+
+
+
+
+</footer>
+
+<!-- /*footer-----*/ -->
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        let searchForm =document.querySelector('.search-form');
+document.querySelector('#search-btn').onclick=() =>
+{
+    searchForm.classList.toggle('active'); 
+    shoppingCart.classList.remove('active');
+    loginForm.classList.remove('active');
+    navbar.classList.remove('active');
+}
+
+
+let shoppingCart =document.querySelector('.shopping-cart');
+document.querySelector('#cart-btn').onclick=() =>
+{
+    searchForm.classList.remove('active');
+    shoppingCart.classList.toggle('active');
+    loginForm.classList.remove('active');
+    navbar.classList.remove('active');
+}
+
+
+
+let loginForm =document.querySelector('.login-form');
+document.querySelector('#login-btn').onclick=() =>
+{
+    searchForm.classList.remove('active');
+    shoppingCart.classList.remove('active');
+    loginForm.classList.toggle('active');
+    navbar.classList.remove('active');
+}
+
+let navbar =document.querySelector('.navbar');
+document.querySelector('#menu-btn').onclick=() =>
+{
+    searchForm.classList.remove('active');
+    shoppingCart.classList.remove('active');
+    loginForm.classList.remove('active');
+    navbar.classList.toggle('active');
+    
+}
+
+
+
+window.onscroll = () =>
+{
+    searchForm.classList.remove('active');
+    shoppingCart.classList.remove('active');
+    loginForm.classList.remove('active');
+    navbar.classList.remove('active');
+}
+
+
+
+var swiper = new Swiper(".product-slider", {
+    loop:true,
+    spaceBetween: 20,
+
+    autoplay:{
+        delay:7500,
+        disableOnInteraction: false,
+    },
+    
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        
+      },
+      768: {
+        slidesPerView: 2,
+        
+      },
+      1024: {
+        slidesPerView: 3,
+        
+      },
+    },
+  });
+    </script>
+
+</body>
+</html>

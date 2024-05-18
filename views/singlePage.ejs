@@ -1,0 +1,79 @@
+<%- include('partials/head')%>
+
+
+<style>
+    h1{
+        font-weight: 700;
+    }
+
+    p{
+        font-size: 18px;
+    }
+    h3{
+        font-size: 20px;
+    }
+    .btn{
+        height: 40px;
+        border-radius: 8px;
+        background-color: Rgb(13,110,253);
+        border: none;
+        color: white;
+        font-weight: 700;
+    }
+
+    input{
+        width: 100px;
+        height: 30px;
+        font-size: 20px;
+        margin-left: 100px;
+        margin-top: -30px;
+    }
+</style>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<div class="d-flex justify-content-center gap-4 p-1 mt-5">
+    <img src="<%= data.url%>" class="w-25" alt="">
+    <div class="w-50">
+      <h1> <%= data.name %> </h1>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis, beatae numquam! Asperiores vero voluptatem deserunt ipsam corrupti tenetur quasi voluptas.</p>
+      <!-- <p> <%= data.description %> </p> -->
+      <br>
+      <h3 class="text-success" id="price">₹<%= data.price %></h3>
+      <input type="number" name="qty" value="1"  min="1" max="4"  id="qty" onchange="updatePriceAndHiddenInput()" >
+      <form method="post">
+        <input type="hidden" name="name" value="<%= data.name%>">
+        <input type="hidden" name="price" value="<%= data.price%>">
+        <input type="hidden" name="url" value="<%= data.url%>">
+        <br>
+        <br>
+        <input type="submit" class="btn btn-primary"  style="width: 650px;" value="Add to cart">
+      </form>
+    </div>
+  </div>
+  
+  <script>
+    function updatePriceAndHiddenInput() {
+      const qty = document.getElementById('qty').value;
+      const price = <%= data.price %>;
+      const totalPrice = qty * price;
+      document.getElementById('price').innerHTML = `₹${totalPrice}`;
+      document.getElementsByName('price')[0].value = totalPrice;
+    }
+  </script>
+
+
+
+
+<%- include('partials/body')%>
+

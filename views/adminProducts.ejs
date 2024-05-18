@@ -1,0 +1,39 @@
+<%- include('partials/AdminHead')%>
+
+<div>
+    <h1 class="text-center py-5">Recently Added Product</h1>
+    <div class="container d-flex justify-center gap-2 flex-wrap" style="width: 90%; margin: 30px auto;">
+
+    <table class="table table-striped">
+        <thead>
+            <th>Image</th>
+            <th>Product Name</th>
+            <th>Price </th>
+            <th>Posted </th>
+            <th>actions</th>
+        </thead>
+        <tbody>
+            <% for(let i of product){ %>
+                <tr>
+                    <td><img src="<%= i.url%>" width="50"></td>
+
+                    <td><a href="/product/single/<%= i._id %>" class="text-black text-decoration-none" target="_blank"><%= i.name %></a></td>
+
+                    <td> <%= i.price %> </td>
+
+                    <td> <%= i.createdAt.toLocaleString() %> </td>
+                    
+                    <td>
+                         <a href="/seller/update/<%= i._id%>" class="btn text-primary bg-primary-subtle me-2">update</button>
+                         <a href="/seller/delete/<%= i._id%>" class="btn text-danger bg-danger-subtle">delete</button>
+                     </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+
+</div>
+</div>
+
+
+<%- include('partials/AdminBody')%>

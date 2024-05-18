@@ -1,0 +1,55 @@
+<%- include('partials/head.ejs')%>
+
+<style>
+  .desc{
+    width: 20px;
+        overflow:hidden; 
+        white-space:nowrap; 
+        text-overflow: ellipsis;
+        background-color: red;
+
+  }
+</style>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<section class="categories" id="categories">
+  <h1 class="heading">All <span>Products</span></h1>
+
+
+  <div class="box-container">
+    <%for(let i of product){%>
+      <div class="box" style=" width: 260px;">
+          <a href="/product/single/<%= i._id %>">
+
+            <img src="<%= i.url%>" alt="">
+      </a>
+
+
+          <h3><%= i.name%></h3>
+          <p>upto 45% off</p>
+          <p><%= i.category%></p>
+          <a href="#" class="btn">shop now</a>
+      </div>
+
+      <%}%>
+
+
+
+  </div>
+
+
+
+
+  </div>
+
+</section>
+<%- include('partials/body.ejs')%>
